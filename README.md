@@ -1,23 +1,33 @@
-Zadanie 03
-==========
+Post Truth Tools
+===============================
 
-Słowem roku 2016 w Oxford Dictionaries zostało wyrażenie post-truth (pl. “post-prawda”): https://en.oxforddictionaries.com/word-of-the-year/word-of-the-year-2016
-Dotyczy ono pewnego sposobu kształtowania opinii publicznej w którym emocje i przekonania są ważniejsze niż fakty.
+version number: 0.0.1
+author: Maksymilian Wojczuk
 
-Przygotuj program służący do sprawdzania wiarygodności informacji. Program ten powinien analizować informacje dostępne w Internecie i wspomagać użytkownika w procesie weryfikacji prawdziwości znalezionej informacji.
+Overview
+--------
 
-Wymagania:
-  - udostępnienie funkcjonalności programu w formie pakietu
-  - wykorzystanie biblioteki numpy (lub innej opartej o nia) do manipulacji danymi
-  - testy jednostkowe z wykorzystaniem biblioteki pytest albo nose
-  - program powinien przejść test flake8 (zgodność z PEP8).
+Simple tools for post-truth analysis
 
-Pakiet ten powinien dać się wykorzystać w notatniku Jupyter. W ramach zadania proszę przygotować przykład użycia w notatniku Jupyter razem z opisem zastosowanego rozwiązania problemu i umieścić je w repozytorium.
+Installation / Usage
+--------------------
 
-Przydatna możw być następująca lista bibliotek: https://github.com/vinta/awesome-python
+To install use pip:
 
-Dodatkowo trzeba wykonać trzy recenzje rozwiązań zadania nr 2 i umieścić w repozytorium w pliku review.txt odnośniki do odpowiednich “Pull request”. Ten fragment zadania umożliwia zdobycie maksymalnie 0.1 punktu.
+    $ pip install post-truth-detector
 
-Treść zadania w Google Drive: https://goo.gl/nYD1E3
 
-Termin oddania zadania: 29 maja 2017, 20:00
+Or clone the repo:
+
+    $ git clone https://github.com/maxiwoj/post-truth-detector.git
+    $ python setup.py install
+    
+Contributing
+------------
+
+TBD
+
+Example
+-------
+
+TBD
