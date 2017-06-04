@@ -2,13 +2,13 @@ from keras.preprocessing import sequence
 
 from post_truth_detector.additional import clickbait_model_weights_path
 from post_truth_detector.learn.clickbaitness_net import convolutional_net, \
-    map_sentence, inverse_vocabulary, words
+    map_sentence, inverse_vocabulary, words, phrases
 
 
 class Predictor:
     def __init__(self):
         self.sequence_length = 20
-        model = convolutional_net(vocabulary_size=len(words),
+        model = convolutional_net(vocabulary_size=len(words + phrases) + 3,
                                   input_length=self.sequence_length)
         model.load_weights(clickbait_model_weights_path)
         self.model = model
