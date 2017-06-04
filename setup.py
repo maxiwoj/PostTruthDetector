@@ -18,12 +18,12 @@ install_requires = [x.strip() for x in all_reqs if 'git+' not in x]
 dependency_links = [x.strip().replace('git+', '') for x in all_reqs if x.startswith('git+')]
 
 setup(
-    name='post-truth-detector',
+    name='post_truth_detector',
     version=__version__,
     description='Simple tools for post-truth analysis',
     long_description=long_description,
-    url='https://github.com/maxiwoj/post-truth-detector',
-    download_url='https://github.com/maxiwoj/post-truth-detector/tarball/' + __version__,
+    url='https://github.com/maxiwoj/post_truth_detector',
+    download_url='https://github.com/maxiwoj/post_truth_detector/tarball/' + __version__,
     license='BSD',
     classifiers=[
       'Development Status :: 3 - Alpha',

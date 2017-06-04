@@ -1,6 +1,7 @@
-# Dev/Deployment
-sphinx
-sphinx_rtd_theme
-nose
-coverage
-pypi-publisher
+pandas
+textblob
+requests
+google-api-python-client
+keras
+sklearn
+numpy
