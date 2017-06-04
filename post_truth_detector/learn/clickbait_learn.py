@@ -38,17 +38,14 @@ def clickbaitness_learn(sentences=None, sequence_length=20, epochs=4):
 
     x_train = sequence.pad_sequences(
         [map_sentence(vocabulary.inverse_vocabulary, sentence) for
-         sentence
-         in x_train],
-        maxlen=sequence_length)
+         sentence in x_train], maxlen=sequence_length)
     x_test = sequence.pad_sequences(
         [map_sentence(vocabulary.inverse_vocabulary, sentence) for sentence
-         in x_test],
-        maxlen=sequence_length)
+         in x_test], maxlen=sequence_length)
 
-    params = dict(vocabulary_size=len(vocabulary.words + vocabulary.phrases)
-                  + 3, input_length=sequence_length)
-    model = convolutional_net(**params)
+    model = convolutional_net(vocabulary_size=len(vocabulary.words +
+                                                  vocabulary.phrases) + 3,
+                              input_length=sequence_length)
 
     model.compile(loss="logcosh", optimizer="adam", metrics=["acc"])
     model.fit(x_train, y_train, validation_data=(x_test, y_test), batch_size=32,
