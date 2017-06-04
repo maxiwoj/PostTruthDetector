@@ -12,26 +12,22 @@ from sklearn.preprocessing import StandardScaler
 from post_truth_detector.additional import relativness_model_path
 
 
-def change(state):
+def map_state(state):
     """Function to preprocess data from csv files"""
     if state == 'unrelated':
         return 0
-    if state == 'discuss':
-        return 1
-    if state == 'disagree':
-        return 1
-    if state == 'agree':
+    else:
         return 1
 
 
 def count(article):
     """Function to count words from title occuring inside the article body"""
-    a = 0
+    numberOfWords = 0
     heading = article[0].split()
     for word in heading:
         if word in article[1]:
-            a += 1
-    return a / len(heading)
+            numberOfWords += 1
+    return numberOfWords / len(heading)
 
 
 def relativness_learn(log_level=Warning):
@@ -54,7 +50,7 @@ def relativness_learn(log_level=Warning):
     logging.basicConfig(level=log_level)
 
     word_rate = np.array([count(x) for x in my_training_list_x]).reshape(-1, 1)
-    answer = np.array([change(x) for x in my_training_list_y])
+    answer = np.array([map_state(x) for x in my_training_list_y])
 
     train_x, test_x, train_y, test_y = train_test_split(word_rate, answer)
 
