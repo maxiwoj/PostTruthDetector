@@ -41,7 +41,8 @@ To test clickbaitness use function which looks like:
 ```python
 def clickbaitness(heading):
     """Function tests using neural network model and most common phrases in 
-    clickbaity titles for clickbaitness in headline of an article."""
+    clickbaity titles for clickbaitness in headline of an article.
+    provided model has 92 percent accuracy."""
 
 ```
 
@@ -101,5 +102,6 @@ def relativeness_analisys(title, article):
 
 Example
 -------
+
 
 

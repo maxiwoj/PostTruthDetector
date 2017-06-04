@@ -1,25 +1,11 @@
 from keras.preprocessing import sequence
 
-from post_truth_detector.learn.convolutional_net import convolutional_net, \
-    map_sentence
-
-# provided model has 92 percent accuracy
-clickbait_model_weights_path = "../models/clickbait_model_weights"
-
-with open("phrases.txt") as file:
-    phrases = file.readlines()
-for i, phrase in enumerate(phrases):
-    phrases[i] = phrase.rstrip()
-phrases = list(filter(lambda x: len(x) > 0, phrases))
-
-with open('words.txt') as file:
-    words = file.readlines()[0].split()
-
-inverse_vocabulary = dict((word, i) for i, word in enumerate(words))
+from post_truth_detector.additional import clickbait_model_weights_path
+from post_truth_detector.learn.clickbaitness_net import convolutional_net, \
+    map_sentence, inverse_vocabulary, words
 
 
 class Predictor:
-
     def __init__(self):
         self.sequence_length = 20
         model = convolutional_net(vocabulary_size=len(words),

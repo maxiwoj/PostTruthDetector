@@ -1,21 +1,22 @@
 import numpy as np
+
 from keras.callbacks import EarlyStopping
 from keras.preprocessing import sequence
 from sklearn.cross_validation import train_test_split
 
-from post_truth_detector.clickbaitness import phrases, words, \
-    inverse_vocabulary, clickbait_model_weights_path
-from post_truth_detector.learn.convolutional_net import map_sentence, \
-    convolutional_net
+from post_truth_detector.additional import clickbait_model_weights_path, \
+    clickbait_titles_path, genuine_titles_path
+from post_truth_detector.learn.clickbaitness_net import map_sentence, \
+    inverse_vocabulary, convolutional_net, words, phrases
 
 
 def clickbaitness_learn(sequence_length=20):
-    with open('../../data/clickbait.txt') as clickbait_file:
+    with open(clickbait_titles_path) as clickbait_file:
         clickbait = clickbait_file.readlines()
     for i, title in enumerate(clickbait):
         clickbait[i] = title.rstrip()
 
-    with open('../../data/genuine.txt') as genuine_file:
+    with open(genuine_titles_path) as genuine_file:
         genuine = genuine_file.readlines()
     for i, title in enumerate(genuine):
         genuine[i] = title.rstrip()

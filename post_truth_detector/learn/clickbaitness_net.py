@@ -3,7 +3,20 @@ from keras.layers import Convolution1D, MaxPooling1D, Flatten, Dense, \
 from keras.models import Sequential
 from keras.regularizers import l2
 
-from post_truth_detector.clickbaitness import phrases
+from post_truth_detector.additional import clickbait_words_path, \
+    clickbait_phrases_path
+
+
+with open(clickbait_words_path) as file:
+    words = file.readlines()[0].split()
+
+with open(clickbait_phrases_path) as file:
+    phrases = file.readlines()
+for i, phrase in enumerate(phrases):
+    phrases[i] = phrase.rstrip()
+phrases = list(filter(lambda x: len(x) > 0, phrases))
+
+inverse_vocabulary = dict((word, i) for i, word in enumerate(words))
 
 
 def convolutional_net(vocabulary_size, input_length):
@@ -13,19 +26,19 @@ def convolutional_net(vocabulary_size, input_length):
     model.add(Embedding(vocabulary_size, embedding_dimension,
                         input_length=input_length, trainable=False))
 
-    model.add(Convolution1D(32, 2, W_regularizer=l2(0.005)))
+    model.add(Convolution1D(32, 2, kernel_regularizer=l2(0.005)))
     model.add(BatchNormalization())
 
-    model.add(Convolution1D(32, 2, W_regularizer=l2(0.001)))
+    model.add(Convolution1D(32, 2, kernel_regularizer=l2(0.001)))
     model.add(BatchNormalization())
 
-    model.add(Convolution1D(32, 2, W_regularizer=l2(0.001)))
+    model.add(Convolution1D(32, 2, kernel_regularizer=l2(0.001)))
     model.add(BatchNormalization())
 
     model.add(MaxPooling1D(17))
     model.add(Flatten())
 
-    model.add(Dense(1, bias=True, W_regularizer=l2(0.001)))
+    model.add(Dense(1, use_bias=True, kernel_regularizer=l2(0.001)))
     model.add(BatchNormalization())
 
     return model
