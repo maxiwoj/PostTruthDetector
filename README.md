@@ -103,5 +103,32 @@ def relativeness_analisys(title, article):
 Example
 -------
 
+#### clickbaitness
+```python
+import post_truth_detector as ptd
+ptd.clickbaitness("The Way This Man Finds Out His Wife Has Been Cheating On Him Is Savage")
+```
 
+#### unreliability of sites
+```python
+import post_truth_detector as ptd
+ptd.site_unreliability("http://edition.cnn.com/2017/06/02/football/champions-league-final-cardiff-security-real-madrid-juventus/index.html")
+```
 
+#### fact unreliability
+```python
+import post_truth_detector as ptd
+ptd.fact_unreliability("Pope has a new baby")
+```
+
+#### Sentiment analisys
+```python
+import post_truth_detector as ptd
+ptd.sentiment_analysis("I love this")
+```
+
+#### relativness
+```python
+import post_truth_detector as ptd
+ptd.relativeness_analisys("Pope endorses Trump", "New model of Toyota has been announced last sunday")
+```
