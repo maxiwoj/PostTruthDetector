@@ -1,0 +1,4 @@
+Zad2 Reviews:
+https://github.com/AGHPythonCourse2017/zad2-mwoss/pull/1#pullrequestreview-42066745
+https://github.com/AGHPythonCourse2017/zad2-artek105/pull/1#pullrequestreview-42075738
+https://github.com/AGHPythonCourse2017/zad2-JakDar/pull/1#pullrequestreview-42080642
