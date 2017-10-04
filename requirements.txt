@@ -1,0 +1,7 @@
+pandas
+textblob
+requests
+google-api-python-client
+keras
+sklearn
+numpy
