@@ -32,6 +32,7 @@ setup(
     ],
     keywords='',
     packages=find_packages(exclude=['docs', 'tests*']),
+    package_data={'': ['data/*', 'models/*']},
     include_package_data=True,
     author='Maksymilian Wojczuk',
     install_requires=install_requires,
