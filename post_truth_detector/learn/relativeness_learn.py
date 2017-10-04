@@ -30,13 +30,13 @@ def count(article):
     return numberOfWords / len(heading)
 
 
-def relativness_learn(log_level=Warning):
+def relativness_learn(log_level=logging.WARNING):
     """function training neural network to check relativness of the title 
     and article body"""
     bodies = pd.read_csv(
-        os.path.dirname(__file__) + "/../../data/train_bodies.csv")
+        os.path.dirname(__file__) + "/../data/train_bodies.csv")
     stances = pd.read_csv(os.path.dirname(__file__) +
-                          "/../../data/train_stances.csv")
+                          "/../data/train_stances.csv")
 
     my_training_list_x = list()
     my_training_list_y = list()

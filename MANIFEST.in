@@ -1,2 +1,4 @@
 include README.md
 include requirements.txt
+include post_truth_detector/data/*
+include post_truth_detector/models/*
