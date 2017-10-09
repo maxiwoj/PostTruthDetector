@@ -18,4 +18,4 @@ class Predictor:
         inputs = sequence.pad_sequences([map_sentence(
             vocabulary.inverse_vocabulary, heading.lower())],
             maxlen=self.sequence_length)
-        return self.model.predict(inputs)[0, 0]
+        return max(0.0, self.model.predict(inputs)[0, 0])

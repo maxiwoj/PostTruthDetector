@@ -10,7 +10,7 @@ from post_truth_detector.additional import clickbait_words_path, \
 class Vocabulary:
     def __init__(self):
         with open(clickbait_words_path) as file:
-            self.words = file.readlines()[0].split()
+            self.words = list(set(file.readlines()[0].split()))
 
         with open(clickbait_phrases_path) as file:
             phrases = file.readlines()
@@ -22,15 +22,15 @@ class Vocabulary:
             self.words))
 
     def update_vocabulary(self, words):
-        with open(clickbait_words_path, "a+") as file:
-            last_elem_in_vocab = max(self.inverse_vocabulary.values()) + 1
-            for word in words:
-                if self.inverse_vocabulary.get(word, -1) == -1:
-                    self.inverse_vocabulary[word] = last_elem_in_vocab
-                    file.write(" " + word.lower().encode('ascii', 'ignore')
-                               .decode("ascii"))
-                    last_elem_in_vocab += 1
-        self.words += words
+        words = filter(lambda word: len(word), map(lambda word: word.lower()
+                                                   .encode('ascii', 'ignore')
+                                                   .decode("ascii"), words))
+        self.words = list(set(list(self.words) + list(words)))
+        self.inverse_vocabulary = dict((word, i) for i, word in enumerate(
+            self.words))
+        with open(clickbait_words_path, "w") as file:
+            for word in self.words:
+                file.write(word + " ")
 
 
 vocabulary = Vocabulary()
