@@ -18,12 +18,12 @@ Installation
 
 To install use pip:
 
-    $ pip install git+https://github.com/AGHPythonCourse2017/zad3-maxiwoj.git
+    $ pip install git+https://github.com/maxiwoj/PostTruthDetector.git
 
 
 Or clone the repo:
 
-    $ git clone https://github.com/maxiwoj/post-truth-detector.git
+    $ git clone https://github.com/maxiwoj/PostTruthDetector.git
     $ python setup.py install
     
 Usage
